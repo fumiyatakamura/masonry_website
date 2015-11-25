@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>COLA | Week 3 Inclass Project | Masonry</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/lightbox.css">
+	<link rel="stylesheet" href="css/style.css" media="screen">
+</head>
+<body>
+	<header class="header">
+		<h1><a href="index.html"><img src="images/logo.jpg" alt="logo" class="logo"></a></h1>
+		<nav>
+			<ul>
+				<li id="sort-all">All</a></li>
+				<li id="sort-cocacola">Cocacola</a></li>
+				<li id="sort-pepsi">Pepsi</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="container">
+		<div class="content">
+
+		<div class="cocacola product featured gallery-items">
+			<a href="images/cocacola/01.jpg" data-lightbox="gallery"><img src="images/cocacola/01th.jpg"></a>
+		</div>
+
+		<div class="cocacola product gallery-items">
+			<a href="images/cocacola/02.jpg" data-lightbox="gallery"><img src="images/cocacola/02th.jpg"></a>
+		</div>
+
+		<div class="pepsi product gallery-items">
+			<a href="images/pepsi/02.jpg" data-lightbox="gallery"><img src="images/pepsi/02th.jpg"></a>
+		</div>
+
+		<div class="cocacola product gallery-items">
+			<a href="images/cocacola/04.jpg" data-lightbox="gallery"><img src="images/cocacola/04th.jpg"></a>
+		</div>
+
+		<div class="pepsi product gallery-items">
+			<a href="images/pepsi/05.jpg" data-lightbox="gallery"><img src="images/pepsi/05th.jpg"></a>
+		</div>
+
+		<div class="cocacola product gallery-items">
+			<a href="images/cocacola/05.jpg" data-lightbox="gallery"><img src="images/cocacola/05th.jpg"></a>
+		</div>
+
+		<div class="pepsi product gallery-items">
+			<a href="images/pepsi/03.jpg" data-lightbox="gallery"><img src="images/pepsi/03th.jpg"></a>
+		</div>
+
+		<div class="cocacola product gallery-items">
+			<a href="images/cocacola/03.jpg" data-lightbox="gallery"><img src="images/cocacola/03th.jpg"></a>
+		</div>
+
+		<div class="pepsi product gallery-items">
+			<a href="images/pepsi/04.jpg" data-lightbox="gallery"><img src="images/pepsi/04th.jpg"></a>
+		</div>
+
+		<div class="pepsi product featured gallery-items">
+			<a href="images/pepsi/01.jpg" data-lightbox="gallery"><img src="images/pepsi/01th.jpg"></a>
+		</div>
+
+
+
+		</div><!-- end .content -->
+	</div><!-- end .container -->
+
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/lightbox-2.6.min.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+
+	<script>
+
+		// init Masonry
+		var container = $('.container').masonry({
+		  // options...
+		  		columnWidth: 320,
+				itemSelector: '.product',
+
+				isFitWidth: true,
+				transitionDuration: 0
+		});
+		// layout Masonry after each image loads
+		container.imagesLoaded().progress( function() {
+		 	container.masonry('layout');
+		});
+
+
+		$("#sort-all").click(function(){
+			$(".cocacola").css("display","block");
+			$(".pepsi").css("display","block");
+			$(".container").masonry();
+		});
+		$("#sort-cocacola").click(function(){
+			$(".cocacola").css("display","block");
+			$(".pepsi").css("display","none");
+			$(".container").masonry();
+		});
+		$("#sort-pepsi").click(function(){
+			$(".cocacola").css("display","none");
+			$(".pepsi").css("display","block");
+			$(".container").masonry();
+		});
+
+
+	</script>
+
+</body>
+</html>
